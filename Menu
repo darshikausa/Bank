@@ -1,0 +1,41 @@
+import Transaction
+import Balance
+import Interest
+import Loan
+import Accountaccess
+
+def helloMenu():
+    print("This is a hello menu module")
+
+def displayMenu():
+    print("Menu:\n"
+          "1. Balance Display\n"
+          "2. Deposit Money\n"
+          "3. Withdraw Money\n"
+          "4. Interest\n"
+          "5. Loans\n"
+          "6. Exit")
+    choice = str(input("Type your choice number. \n"))
+
+    if choice == "1":
+        print("Your balance is: ", Balance.balance)
+        displayMenu()
+
+    elif choice == "2":
+        if Accountaccess.performAccountaccess() == True:
+            Transaction.depositMoney()
+
+    elif choice == "3":
+        if Accountaccess.performAccountaccess()== True:
+            Transaction.withdrawMoney()
+
+    elif choice == "4":
+        Interest.interestCalculation()
+        Interest.interestMoney()
+        displayMenu()
+
+    elif choice == "5":
+        Loan.performLoan()
+
+    elif choice == "6":
+        exit()
